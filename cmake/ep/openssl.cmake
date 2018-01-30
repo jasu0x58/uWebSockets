@@ -4,7 +4,7 @@ ExternalProject_Add(ep_openssl
     UPDATE_COMMAND ""
     INSTALL_DIR ${EP_INSTALL_PREFIX}
     BUILD_IN_SOURCE 1    
-    CONFIGURE_COMMAND ./config --prefix=<INSTALL_DIR> $<$<CONFIG:Debug>:-d> no-shared 
+    CONFIGURE_COMMAND ./config --prefix=<INSTALL_DIR> $<$<CONFIG:Debug>:-d> no-shared $<$<CONFIG:RelWithDebInfo>:-g>
     BUILD_COMMAND ${MAKE_COMMAND}
     INSTALL_COMMAND ${MAKE_COMMAND} install_sw
 )
